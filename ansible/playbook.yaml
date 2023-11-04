@@ -12,4 +12,7 @@
       ansible.builtin.service:
         name: nginx
         state: started
-        enabled: true  # set to start nginx service on boot
+    - name: Set to start nginx service on boot
+      ansible.builtin.service:
+        name: nginx
+        enabled: true # set to start on boot
