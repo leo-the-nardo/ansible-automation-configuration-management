@@ -8,3 +8,8 @@
         name: nginx        # package name
         state: present     # if not present, install it, if present, do nothing
         update_cache: true # use apt update before installing
+    - name: Start nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true  # set to start nginx service on boot
