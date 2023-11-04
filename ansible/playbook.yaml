@@ -1,0 +1,10 @@
+- name: Install nginx
+  hosts: webservers
+  become: true        # execute the task as root(sudo)
+  remote_user: ubuntu # User used to log into the target via the connection plugin.
+  tasks:
+    - name: Install nginx
+      ansible.builtin.apt:
+        name: nginx        # package name
+        state: present     # if not present, install it, if present, do nothing
+        update_cache: true # use apt update before installing
