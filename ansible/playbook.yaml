@@ -17,9 +17,9 @@
         name: nginx
         enabled: true # set to start on boot
     - name: Write custom nginx index
-      ansible.builtin.copy:
+      ansible.builtin.template:
         mode: '0644'           # file permission
-        src: custom/index.html # relative file from my machine
+        src: custom/index.html.j2 # template file
         dest: /var/www/html/index.nginx-debian.html
     - name: Write custom nginx.conf
       ansible.builtin.copy:
